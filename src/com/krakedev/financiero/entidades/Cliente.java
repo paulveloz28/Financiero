@@ -36,5 +36,11 @@ public class Cliente {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
+	
+	public void imprimir() {
+	    System.out.println("Cédula: " + cedula);
+	    System.out.println("Nombre: " + nombre);
+	    System.out.println("Apellido: " + apellido);
+	}
 
 }
