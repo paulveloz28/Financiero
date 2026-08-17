@@ -7,5 +7,13 @@ public class Banco {
 	public Banco() {
         ultimoCodigo = 1000;
     }
+	
+	public int getUltimoCodigo() {
+        return ultimoCodigo;
+    }
+
+    public void setUltimoCodigo(int ultimoCodigo) {
+        this.ultimoCodigo = ultimoCodigo;
+    }
 
 }
