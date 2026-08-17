@@ -53,5 +53,19 @@ public class Banco {
 
         return true;
     }
+    
+    public boolean transferir(Cuenta origen, Cuenta destino, double monto) {
+    	boolean retiro = retirar(monto, origen);
+
+        if (retiro) {
+            boolean deposito = depositar(monto, destino);
+
+            if (deposito) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 
 }
