@@ -31,5 +31,43 @@ public class TestBanco {
         assertSame(cliente, cuenta1.getPropietario());
         assertSame(cliente, cuenta2.getPropietario());
     }
+	
+	@Test
+	public void testDepositar() {
+
+	    Banco banco = new Banco();
+
+	    Cliente cliente = new Cliente(
+	            "1234567890",
+	            "Juan",
+	            "Perez"
+	    );
+
+	    Cuenta cuenta = banco.crearCuenta(cliente);
+
+	    boolean resultado = banco.depositar(100.0, cuenta);
+
+	    assertEquals(true, resultado);
+	    assertEquals(100.0, cuenta.getSaldoActual(), 0.001);
+	}
+	
+	@Test
+	public void testDepositarMontoInvalido() {
+
+	    Banco banco = new Banco();
+
+	    Cliente cliente = new Cliente(
+	            "1234567890",
+	            "Juan",
+	            "Perez"
+	    );
+
+	    Cuenta cuenta = banco.crearCuenta(cliente);
+
+	    boolean resultado = banco.depositar(0, cuenta);
+
+	    assertEquals(false, resultado);
+	    assertEquals(0.0, cuenta.getSaldoActual(), 0.001);
+	}
 
 }
