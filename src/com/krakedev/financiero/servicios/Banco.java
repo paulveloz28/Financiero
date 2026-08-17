@@ -51,7 +51,7 @@ public class Banco {
     	
     	cuenta.setSaldoActual(cuenta.getSaldoActual() - monto);
 
-        return true
+        return true;
     }
 
 }

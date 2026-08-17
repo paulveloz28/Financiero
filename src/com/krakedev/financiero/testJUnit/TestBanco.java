@@ -69,5 +69,47 @@ public class TestBanco {
 	    assertEquals(false, resultado);
 	    assertEquals(0.0, cuenta.getSaldoActual(), 0.001);
 	}
+	
+	@Test
+	public void testRetirar() {
+
+	    Banco banco = new Banco();
+
+	    Cliente cliente = new Cliente(
+	            "1234567890",
+	            "Juan",
+	            "Perez"
+	    );
+
+	    Cuenta cuenta = banco.crearCuenta(cliente);
+
+	    banco.depositar(100.0, cuenta);
+
+	    boolean resultado = banco.retirar(40.0, cuenta);
+
+	    assertEquals(true, resultado);
+	    assertEquals(60.0, cuenta.getSaldoActual(), 0.001);
+	}
+	
+	@Test
+	public void testRetirarMontoMayorAlSaldo() {
+
+	    Banco banco = new Banco();
+
+	    Cliente cliente = new Cliente(
+	            "1234567890",
+	            "Juan",
+	            "Perez"
+	    );
+
+	    Cuenta cuenta = banco.crearCuenta(cliente);
+
+	    banco.depositar(100.0, cuenta);
+
+	    boolean resultado = banco.retirar(150.0, cuenta);
+
+	    assertEquals(false, resultado);
+	    assertEquals(100.0, cuenta.getSaldoActual(), 0.001);
+	}
 
 }
